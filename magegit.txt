@@ -24,6 +24,26 @@ Query OK, 1 row affected (0.01 sec)
 Rows matched: 1  Changed: 1  Warnings: 0
 
 
+--------------------------------------------
+
+root@Bigphoneshop:/var/www/html/test2# rm -rf var/cache/* var/di/* var/generation/* var/view_preprocessed/* var/composer_home/cache/*
+root@Bigphoneshop:/var/www/html/test2# chmod -R 777 pub
+root@Bigphoneshop:/var/www/html/test2# chmod -R 777 var
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
