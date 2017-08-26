@@ -20,5 +20,58 @@ Place your requirejs-config.js file in
 
 --------------------------------------------------------------------------------------------
 
+ // Map our module names to their relevant script
+var config = {
+    "map": {
+        "*": {
+            "bootstrap-carousel": "js/vendor/bootstrap/carousel",
+            "bootstrap-transition": "js/vendor/bootstrap/transition",
+            "carousel-init": "js/carousel"
+        }
+    },
+
+    // Define dependencies for none AMD third party modules - Do not use for scripts that use require - 
+    // http://requirejs.org/docs/api.html#config-shim
+    "shim": {
+        "js/vendor/bootstrap/carousel": ["jquery", "bootstrap-transition"],
+        "js/vendor/bootstrap/transition": ["jquery"]
+
+    }
+}; 
+
+--------------------------------------------------------------
+  
+var config = {
+    map: {
+        "*": {
+            "jquery191":             "js/jquery-1.9.1.min.js",
+            "jqueryjs":              "js/jquery.js",
+            "modernizr":             "js/modernizr.js",
+            "bootstrapjs":           "js/bootstrap.min.js",
+            "owl-carousel":          "js/owl.carousel.js",
+            "main":                  "js/main.js",
+        }
+    },
+
+};
+  
+<script type="text/javascript">
+require(['jquery'],function($){
+    $(window).load(function() {
+        alert('jquery working');
+    });
+});
+  
+  
+<script>
+ /* var $jj = $.noConflict();
+  $jj('.carousel').carousel({
+      interval: 5000 //changes the speed
+  }) */
+</script>
+  
+  
+  
+  
 
 
