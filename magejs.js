@@ -96,7 +96,33 @@ require(['jquery'],function($){
 
 -------------------------------------------------------------------------------------
   
-  
+//requirejs-config.js
+var config = {
+    map: {
+        '*': {
+            'jqryjs': 'js/jquery',
+            'jqr191': 'js/jquery-1.9.1.min',
+            'owlCarousel': 'js/owl.carousel.min',
+            'bootstrapjs': 'js/bootstrap.min',
+        }
+    },
+    paths: {
+            'jqryjs': 'js/jquery',
+            'jqr191': 'js/jquery-1.9.1.min',
+            'owlCarousel': 'js/owl.carousel.min',
+            'bootstrapjs': 'js/bootstrap.min',
+    },
+    shim: {
+        "bootstrapjs": {
+           deps: ['jqrys'],
+        },
+        "owlCarousel": {
+                deps: ['jqryjs', 'jqr191'],
+        }
+    },
+
+};
+
   
   
 
