@@ -53,17 +53,11 @@ var config = {
 var config = {
     map: {
         '*': {
-            'jqr1-11-1': 'js/jquery',
-            'jqr1-9-1': 'js/jquery-1.9.1.min',
-            'owlCarousel': 'js/owl.carousel.min',
-            'bootstrapjs': 'js/bootstrap.min',
-        }
-    },
-    paths: {
             'jqr1-11-1': 'mage/jquery',
             'jqr1-9-1': 'mage/jquery-1.9.1.min',
             'owlCarousel': 'mage/owl.carousel.min',
             'bootstrapjs': 'mage/bootstrap.min',
+        }
     },
     shim: {
         "bootstrapjs": {
