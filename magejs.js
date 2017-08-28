@@ -1,4 +1,13 @@
 
+Added the database “quen101_basketball”.
+qZF-tx*ynh]B
+
+You have successfully created a MySQL user named “quen101_bskuser”.
+
+You have given the requested privileges on the database “quen101_basketball” to the user “quen101_bskuser”.
+
+-----------------------------------------
+
 Best thing to do is use a Magento 2 Module or a Theme to include such plugins/libraries. 
 It is the recommended way and the best practice.
 
@@ -40,117 +49,7 @@ var config = {
 }; 
 
 --------------------------------------------------------------
- 
- var config = {
-    map: {
-        '*': {
-            'modtheme/jqryjs': 'js/jquery',
-            'modtheme/jqr191': 'js/jquery-1.9.1.min',
-            'modtheme/owlCarousel': 'js/owl.carousel.min',
-        }
-    },
-    paths: {
-            'modtheme/jqryjs': 'js/jquery',
-            'modtheme/jqr191': 'js/jquery-1.9.1.min',
-            'modtheme/owlCarousel': 'js/owl.carousel.min',
-    },
-    shim: {
-        "modtheme/owlCarousel": {
-                deps: ['modtheme/jqryjs', 'modtheme/jqr191'],
-        }
-    },
 
-};
- 
-
---------------------------------------------------------------- 
-  
-var config = {
-    map: {
-        "*": {
-            "jquery191":             "js/jquery-1.9.1.min.js",
-            "jqueryjs":              "js/jquery.js",
-            "modernizr":             "js/modernizr.js",
-            "bootstrapjs":           "js/bootstrap.min.js",
-            "owl-carousel":          "js/owl.carousel.js",
-            "main":                  "js/main.js",
-        }
-    },
-
-};
-  
-<script type="text/javascript">
-require(['jquery'],function($){
-    $(window).load(function() {
-        alert('jquery working');
-    });
-});
-  
-  
-<script>
- /* var $jj = $.noConflict();
-  $jj('.carousel').carousel({
-      interval: 5000 //changes the speed
-  }) */
-</script>
-
--------------------------------------------------------------------------------------
-  
-var config = {
-    map: {
-        '*': {
-            'jqryjs': 'js/jquery',
-            'jqr191': 'js/jquery-1.9.1.min',
-            'owlCarousel': 'js/owl.carousel.min',
-            'bootstrapjs': 'js/bootstrap.min',
-        }
-    },
-    paths: {
-            'jqryjs': 'mage/js/jquery',
-            'jqr191': 'mage/js/jquery-1.9.1.min',
-            'owlCarousel': 'mage/js/owl.carousel.min',
-            'bootstrapjs': 'mage/js/bootstrap.min',
-    },
-    shim: {
-        "bootstrapjs": {
-           deps: ['jqrys'],
-        },
-        "owlCarousel": {
-                deps: ['jqryjs', 'jqr191'],
-        }
-    },
-
-};
-
------------------------------------------------------------------------------------
- 
- var config = {
-    map: {
-        '*': {
-            'jqryjs': 'js/jquery',
-            'jqr191': 'js/jquery-1.9.1.min',
-            'owlCarousel': 'js/owl.carousel.min',
-            'bootstrapjs': 'js/bootstrap.min',
-        }
-    },
-    paths: {
-            'jqryjs': 'mage/jqryjs',
-            'jqr191': 'mage/js/jquery-1.9.1.min',
-            'owlCarousel': 'mage/js/owl.carousel.min',
-            'bootstrapjs': 'mage/bootstrapjs',
-    },
-    shim: {
-        "bootstrapjs": {
-           deps: ['jqrys'],
-        },
-        "owlCarousel": {
-                deps: ['jqryjs', 'jqr191'],
-        }
-    },
-
-};
-
-----------------------------------------------------------------
 var config = {
     map: {
         '*': {
@@ -159,6 +58,12 @@ var config = {
             'owlCarousel': 'js/owl.carousel.min',
             'bootstrapjs': 'js/bootstrap.min',
         }
+    },
+    paths: {
+            'jqr1-11-1': 'mage/jquery',
+            'jqr1-9-1': 'mage/jquery-1.9.1.min',
+            'owlCarousel': 'mage/owl.carousel.min',
+            'bootstrapjs': 'mage/bootstrap.min',
     },
     shim: {
         "bootstrapjs": {
@@ -170,6 +75,8 @@ var config = {
     },
 
 };
+
+
 
 
 
