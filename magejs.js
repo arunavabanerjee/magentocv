@@ -96,7 +96,6 @@ require(['jquery'],function($){
 
 -------------------------------------------------------------------------------------
   
-//requirejs-config.js
 var config = {
     map: {
         '*': {
@@ -107,10 +106,10 @@ var config = {
         }
     },
     paths: {
-            'jqryjs': 'js/jquery',
-            'jqr191': 'js/jquery-1.9.1.min',
-            'owlCarousel': 'js/owl.carousel.min',
-            'bootstrapjs': 'js/bootstrap.min',
+            'jqryjs': 'mage/js/jquery',
+            'jqr191': 'mage/js/jquery-1.9.1.min',
+            'owlCarousel': 'mage/js/owl.carousel.min',
+            'bootstrapjs': 'mage/js/bootstrap.min',
     },
     shim: {
         "bootstrapjs": {
