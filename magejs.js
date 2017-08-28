@@ -40,6 +40,30 @@ var config = {
 }; 
 
 --------------------------------------------------------------
+ 
+ var config = {
+    map: {
+        '*': {
+            'modtheme/jqryjs': 'js/jquery',
+            'modtheme/jqr191': 'js/jquery-1.9.1.min',
+            'modtheme/owlCarousel': 'js/owl.carousel.min',
+        }
+    },
+    paths: {
+            'modtheme/jqryjs': 'js/jquery',
+            'modtheme/jqr191': 'js/jquery-1.9.1.min',
+            'modtheme/owlCarousel': 'js/owl.carousel.min',
+    },
+    shim: {
+        "modtheme/owlCarousel": {
+                deps: ['modtheme/jqryjs', 'modtheme/jqr191'],
+        }
+    },
+
+};
+ 
+
+--------------------------------------------------------------- 
   
 var config = {
     map: {
@@ -69,6 +93,8 @@ require(['jquery'],function($){
       interval: 5000 //changes the speed
   }) */
 </script>
+
+-------------------------------------------------------------------------------------
   
   
   
