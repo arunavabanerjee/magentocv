@@ -1,4 +1,16 @@
 
+<?php
+
+$imagewidth=200;
+$imageheight=200;
+$imageHelper  = $objectManager->get('\Magento\Catalog\Helper\Image');
+$image_url = $imageHelper->init($product, 'product_page_image_small')->setImageFile($product->getFile())->resize($imagewidth, $imageheight)->getUrl();
+ echo $image_url
+
+
+?>
+
+
 <?php //bestseller
 $objectManager = \Magento\Framework\App\ObjectManager::getInstance();   
 $productCollection = $objectManager->create('Magento\Reports\Model\ResourceModel\Report\Collection\Factory'); 
