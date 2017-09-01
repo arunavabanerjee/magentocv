@@ -1,4 +1,126 @@
 
+var config = {
+    paths: {
+        "jQuery1.11.1": "js/jquery",
+        "jQueryNC":  "js/jquery1.11.1-noconflict",
+        "bootstrapJS": "js/bootstrap.min",
+        "jQuery1.9.1": "js/jquery-1.9.1.min",
+        "jQuery191NC": "js/jquery1.9.1-noconflict"
+    },
+    shim:{
+        "bootstrapJS": {
+           deps: ["jQuery191NC"]
+        }
+    }
+};
+
+
+
+var config = {
+    paths: {
+            'flexslider': 'Vendor_Modulejs/jquery.flexslider-min',
+            'picturefill': 'Vendor_Modulejs/picturefill.min',
+            'easing': 'Vendor_Modulejs/jquery.easing.1.3',
+            'hoverintent': 'Vendor_Modulejs/jquery.hoverIntent',
+            'fitvids': 'Vendor_Modulejs/jquery.fitvids',
+            'vimeo': 'Vendor_Modulejs/jquery.vimeo.api.min'
+    },
+    shim: {
+            'flexslider': {
+                deps: ['jquery']
+            },
+            'picturefill': {
+                deps: ['jquery']
+            },
+            'easing': {
+                deps: ['jquery']
+            },
+            'hoverintent': {
+                deps: ['jquery']
+            },
+            'fitvids': {
+                deps: ['jquery']
+            },
+            'vimeo': {
+                deps: ['jquery']
+            }
+    }
+};
+
+
+
+var config = {
+    paths: {
+        "jQuery1.11.1": "js/jquery",
+        "jQueryNC":  "js/jquery1.11.1-noconflict",
+        "bootstrapJS": "js/bootstrap.min",
+        "jQuery1.9.1": "js/jquery-1.9.1.min",
+        "jQuery191NC": "js/jquery1.9.1-noconflict"
+    },
+};
+
+
+
+
+
+var config = {
+    paths: {
+        "jQuery1.11.1": "js/jquery",
+        "jQueryNC":  "js/jquery1.11.1-noconflict",
+        "bootstrapJS": "js/bootstrap.min"
+    },
+};
+
+<script>
+ require(["jQueryNC", "bootstrapJS"],function(jQuery){
+   (function ($) {
+       $('.carousel').carousel({
+          interval: 5000 //changes the speed
+       });
+   })(jQuery);
+ });
+</script>
+
+
+
+
+<script>
+ require(["jQueryNC"],function(jQuery){
+        (function ($)
+        {
+             var version = $().jquery;
+             alert(version);
+
+  $('.carousel').carousel({
+      interval: 5000 //changes the speed
+  })
+
+
+
+
+        })(jQuery);
+ });
+</script>
+
+
+
+
+var config = {
+    paths: {
+        "jQuery1.11.1": "js/jquery",
+        "jQueryNC":  "js/jquery1.11.1-noconflict"
+    },
+};
+
+
+
+var config = {
+    paths: {
+        "jQuery191": "js/jquery1.9.1.min",
+        "jQueryNC":  "js/jquery191-noconflict"
+    },
+};
+
 Added the database “quen101_basketball”.
 qZF-tx*ynh]B
 
