@@ -14,6 +14,16 @@ var config = {
     }
 };
 
+<script>
+ require(["jQuery191NC", "bootstrapJS"], function(jQuery){
+   (function ($) {
+       jQuery('.carousel').carousel({
+          interval: 5000 //changes the speed
+       });
+   })(jQuery);
+ });
+</script>
+
 
 
 var config = {
