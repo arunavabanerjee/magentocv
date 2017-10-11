@@ -9,4 +9,169 @@ find | grep part1 | xargs rm -rf
 sftp -oPort=2222 user@123.456.789.012:/home/something 
 sftp -oPort=50800 root@207.154.230.171:/var/www/html/test1/
 
+---------------------------------------------------------------
+
+//FUNCTION CUSTOM POST TRANSLATION
+
+add_filter( 'term_link', 'willy_term_link', 999, 3 );
+function willy_term_link( $term_link, $term, $taxonomy ) {
+    if ( $taxonomy == 'attivita_categories' ) {
+        if ( wpml_object_id_filter( $term->term_id, 'attivita_categories', false, 'en' ) == $term->term_id ) {
+            $term_link = str_replace( 'attivita/', 'activities/', $term_link );
+        }
+		if ( wpml_object_id_filter( $term->term_id, 'attivita_categories', false, 'ru' ) == $term->term_id ) {
+            $term_link = str_replace( 'attivita/', 'деятельность/', $term_link );
+        }
+    }
+    return $term_link;
+}
+/*add_filter('post_type_archive_link', 'post_type_archive_link_func', 999, 2);
+function post_type_archive_link_func($link, $post_type){
+    if($post_type == 'attivita'){
+        if ( ICL_LANGUAGE_CODE == 'en' ) {
+            $link = str_replace( 'attivita/', 'activities/', $link );
+        }
+		if ( ICL_LANGUAGE_CODE == 'ru' ) {
+            $link = str_replace( 'attivita/', 'деятельность/', $link );
+        }
+    }
+    return $link;
+}*/
+
+add_action( 'init', 'wpse33551_rewrites_init' );
+function wpse33551_rewrites_init(){
+	//EN 
+    add_rewrite_rule(
+        'activities/([^/]*)/([^/]*)',
+        'index.php?post_type=attivita&name=$matches[2]',
+        'top' );
+    add_rewrite_rule(
+        'activities/([^/]*)',
+        'index.php?attivita_categories=$matches[1]',
+        'top' );
+    add_rewrite_rule(
+        'activities',
+        'index.php?post_type=attivita',
+        'top' ); 
+	//RU
+	add_rewrite_rule(
+        'деятельность/([^/]*)/([^/]*)',
+        'index.php?post_type=attivita&name=$matches[2]',
+        'top' );
+    add_rewrite_rule(
+        'деятельность/([^/]*)',
+        'index.php?attivita_categories=$matches[1]',
+        'top' );
+    add_rewrite_rule(
+        'деятельность',
+        'index.php?post_type=attivita',
+        'top' );
+}
+add_filter('bcn_template_tags', 'bcn_template_tags_fun', 10, 3);
+function bcn_template_tags_fun($replacements, $type, $id){
+    if(ICL_LANGUAGE_CODE=='en'):
+        $replacements['%all_attivita%'] = 'Activities';
+		$replacements['%all_camere%'] = 'Rooms';
+		$replacements['%all_offerte%'] = 'Deals';
+		$replacements['%all_partnership%'] = 'Partnerships';
+    
+    elseif (ICL_LANGUAGE_CODE=='ru'):
+        $replacements['%all_attivita%'] = 'деятельность';
+		$replacements['%all_camere%'] = 'Номера';
+		$replacements['%all_offerte%'] = 'Предложения';
+		$replacements['%all_partnership%'] = 'партнерства';
+	else :
+	
+        $replacements['%all_attivita%'] = 'Attività';
+		$replacements['%all_camere%'] = 'Camere';
+		$replacements['%all_offerte%'] = 'Offerte';
+		$replacements['%all_partnership%'] = 'Partnership';
+    endif;
+    /*echo '<pre>';
+    print_r($replacements);
+    print_r($type);
+    print_r($id);
+    echo '<pre>';
+    exit;*/
+    return $replacements;
+}
+add_filter('bcn_breadcrumb_url', 'bcn_breadcrumb_url_fun', 10, 3);
+function bcn_breadcrumb_url_fun($url, $type, $id)
+{
+    if($url == esc_url( get_bloginfo('url') ) . '/attivita/' && ICL_LANGUAGE_CODE=='en'){
+        $url = esc_url( home_url( '/' ) ) . 'activities/';
+    }
+	if($url == esc_url( get_bloginfo('url') ) . '/attivita/' && ICL_LANGUAGE_CODE=='ru'){
+        $url = esc_url( home_url( '/' ) ) . 'деятельность/';
+    }
+	
+	if($url == esc_url( get_bloginfo('url') ) . '/camere/' && ICL_LANGUAGE_CODE=='en'){
+        $url = esc_url( home_url( '/' ) ) . 'rooms/';
+    }
+	if($url == esc_url( get_bloginfo('url') ) . '/camere/' && ICL_LANGUAGE_CODE=='ru'){
+        $url = esc_url( home_url( '/' ) ) . 'номера/';
+    }
+	if($url == esc_url( get_bloginfo('url') ) . '/offerte/' && ICL_LANGUAGE_CODE=='en'){
+        $url = esc_url( home_url( '/' ) ) . 'deals/';
+    }
+	if($url == esc_url( get_bloginfo('url') ) . '/offerte/' && ICL_LANGUAGE_CODE=='ru'){
+        $url = esc_url( home_url( '/' ) ) . 'предложения/';
+    }
+
+	if($url == esc_url( get_bloginfo('url') ) . '/partnership/' && ICL_LANGUAGE_CODE=='en'){
+        $url = esc_url( home_url( '/' ) ) . 'partnerships/';
+    }
+	if($url == esc_url( get_bloginfo('url') ) . '/partnership/' && ICL_LANGUAGE_CODE=='ru'){
+        $url = esc_url( home_url( '/' ) ) . 'партнерства/';
+    }
+	
+	
+    /*echo '<pre>';
+    echo $url . '===' . $url22 . '===' . '$$$' . '===' . $id;
+    print_r($type);
+    echo '</pre>';*/
+    return $url;
+}
+add_filter('bcn_breadcrumb_title', 'bcn_breadcrumb_title_fn', 10, 3);
+function bcn_breadcrumb_title_fn($title, $type, $id){
+    if($title == 'Attività' && ICL_LANGUAGE_CODE=='en'){
+        $title = 'Activities';
+    }
+	
+	if($title == 'Attività' && ICL_LANGUAGE_CODE=='ru'){
+        $title = 'деятельность';
+    }
+	
+	if($title == 'Camere' && ICL_LANGUAGE_CODE=='en'){
+        $title = 'Rooms';
+    }
+	
+	if($title == 'Camere' && ICL_LANGUAGE_CODE=='ru'){
+        $title = 'Номера';
+    }
+	
+	if($title == 'Offerte' && ICL_LANGUAGE_CODE=='en'){
+        $title = 'Deals';
+    }
+	
+	if($title == 'Offerte' && ICL_LANGUAGE_CODE=='ru'){
+        $title = 'Предложения';
+    }
+
+	if($title == 'Partnership' && ICL_LANGUAGE_CODE=='en'){
+        $title = 'Partnerships';
+    }
+	
+	if($title == 'Partnership' && ICL_LANGUAGE_CODE=='ru'){
+        $title = 'партнерства';
+    }
+		
+    return $title;
+}
+//END 
+
+
+
+
+
 
