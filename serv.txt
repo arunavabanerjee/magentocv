@@ -7,6 +7,8 @@ find | grep part1 | xargs rm -rf
 
 find | grep "@" | for i in *; do echo "$i" "${i/@/A}"; done
 
+for i in *; do echo "$i" "${i/@/A}"; done
+
 
 -----
 
