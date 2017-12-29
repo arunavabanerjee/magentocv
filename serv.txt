@@ -5,6 +5,8 @@ for i in Mage/*; do cp "$i" ../prjshp/; done
 
 find | grep part1 | xargs rm -rf 
 
+find | grep "@" | for i in *; do echo "$i" "${i/@/A}"; done
+
 
 -----
 
