@@ -9,6 +9,9 @@ find | grep "@" | for i in *; do echo "$i" "${i/@/A}"; done
 
 for i in *; do echo "$i" "${i/@/A}"; done
 
+------
+
+ssh -p 2205 root@pu.interactivedns.com
 
 -----
 
